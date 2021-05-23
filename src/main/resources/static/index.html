@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Haha</title>
+</head>
+<body>
+<h1>haha</h1>
+测试rest:
+<form action="/user" method="get">
+    <input value="REST-GET 提交" type="submit">
+</form>
+<form action="/user" method="post">
+    <input value="REST-POST 提交" type="submit">
+</form>
+<form action="/user" method="post">
+    <input name="_method" type="hidden" value="DELETE">
+    <input value="REST-DELETE 提交" type="submit">
+</form>
+<form action="/user" method="post">
+    <input name="_method" type="hidden" value="PUT">
+    <input value="REST-PUT 提交" type="submit">
+</form>
+<hr/>
+测试基本注解：
+<ul>
+    <a href="car/3/owner/lisi?age=19&interest=game&interest=video">获取各种参数</a>
+    <li>PathVariable(路径变量)</li>
+    <li>RequestHeader(获取请求头)</li>
+    <li>@RequestParam(获取请求参数)</li>
+    <li>@CookieValue(获取cookie)</li>
+    <li>@RequestAttribute(获取request域属性)</li>
+    <li>@RequestBody(获取请求体)</li>
+    <li>@MatrixVariable(矩阵变量)</li>
+</ul>
+<form action="/save" method="post">
+    ID:<input name="id" type="text"><br/>
+    姓名:<input name="name" type="text">
+    <input value="提交" type="submit">
+</form>
+<br>
+<a href="/goto">跳转</a><br><br/>
+<a href="/params">params</a>
+<br>
+<br/>
+<a href="/cars/sell;low=34;brand=bmw,audi,benz">@MatrixVariable(矩阵变量)/cars/sell;low=34;brand=bmw,audi,benz</a><br>
+<a href="/cars/sell;low=34;brand=bmw;brand=audi;brand=benz">@MatrixVariable(矩阵变量)/cars/sell;low=34;brand=bmw;brand=audi;brand=benz</a><br>
+<a href="/boss/1;age=20/2;age=10">@MatrixVariable(矩阵变量)/boss/1;age=20/2;age=10</a><br>
+
+<br/>
+<form action="/saveuser" method="post">
+    姓名:<input name="userName" value="张三"><br/>
+    年龄:<input name="age" value="18"><br/>
+    生日:<input name="birth" value="1996/01/02"><br/>
+
+    <!--级联属性自动配置    -->
+    <!--    宠物姓名:<input name="pet.name" value="猫"><br/>-->
+    <!--    宠物年龄:<input name="pet.age" value="5"><br/>-->
+
+    <!-- 自定义类型转换器 ，以逗号分割-->
+    <input name="pet" value="猫,5">
+    <input value="提交" type="submit">
+</form>
+<br><br>
+<a href="/getperson">获取Person</a><br><br/>
+</body>
+</html>
